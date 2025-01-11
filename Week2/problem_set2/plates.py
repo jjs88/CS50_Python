@@ -1,10 +1,35 @@
 
 def is_valid(plate:str):
-    if no_special_characters(plate) and starts_with_two_letters(plate) and max_six_characters(plate) and numbers_at_end(plate) and first_number_not_zero(plate):
+    if no_special_characters(plate) and starts_with_two_letters(plate) and max_six_characters(plate) and no_numbers(plate):
+        return True
+    elif no_special_characters(plate) and starts_with_two_letters(plate) and max_six_characters(plate) and numbers_at_end(plate) and first_number_not_zero(plate) and number_not_in_middle(plate):
         return True
     else:
         return False
+
+def number_not_in_middle(plate:str):
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
+    result:bool = True
+    rest_of_plate:str = ""
+
+    for p in range(len(plate)):
+        if p + 1 != len(plate) and plate[p] in numbers: # if number found and not the last one
+            if plate[p+1] not in numbers: #check if next char not a number
+                result = False
+                break
     
+    return result
+        
+def no_numbers(plate:str):
+    numbers = ['0','1','2','3','4','5','6','7','8','9']
+    result:bool = True
+
+    for i in plate:
+        if i in numbers:
+            result = False
+            break
+    
+    return result
 
 def starts_with_two_letters(plate:str):
     first_letter:str = ""
@@ -61,6 +86,8 @@ def main():
     # print(max_six_characters(value))
     # print(numbers_at_end(value))
     # print(first_number_not_zero(value))
+    # print(no_numbers(value))
+    # print(number_not_in_middle(value))
     if(is_valid(value)):
         print("Valid")
     else:

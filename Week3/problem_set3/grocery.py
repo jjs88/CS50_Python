@@ -14,7 +14,7 @@ def main():
 
     while True:
         try:
-            user_val:str = input("Enter an Item: ").lower()
+            user_val:str = input(" ").lower()
             add_or_update_grocery_list(user_val, grocery_list)
                      
         except KeyboardInterrupt:

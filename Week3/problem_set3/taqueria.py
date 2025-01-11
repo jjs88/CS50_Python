@@ -10,7 +10,7 @@ def get_menu():
         "Super Quesadilla": 9.50,
         "Taco": 3.00,
         "Tortilla Salad": 8.00
-    }   
+    }
 
 
 def main():
@@ -25,8 +25,11 @@ def main():
             item_price = menu[val]
             total_price = total_price + item_price
             formatted_total_price = "{:.2f}".format(total_price)
-            print(f"Total: {formatted_total_price}")
+            print(f"Total: ${formatted_total_price}")
 
+        except EOFError:
+            print("", end="\n")
+            break
         except KeyError:
             print("Menu item is not available, please try again")
         except KeyboardInterrupt:

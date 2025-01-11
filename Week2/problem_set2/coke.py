@@ -1,7 +1,4 @@
 
-
-
-
 def coke_machine():
     coin:int = 0
     bottle_price:int = 50

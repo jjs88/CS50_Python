@@ -1,14 +1,21 @@
 
+#test.txt.pdf
 def media_type(arg:str):
     extension:str = ""
     arg = arg.split(".")
 
     if(len(arg) == 2):
         extension = arg[1]
+    elif(len(arg) == 3):
+        extension = arg[2]
     else:
         extension = ""
 
     match extension:
+        case "png":
+            print(f"image/png")
+        case "gif":
+            print(f"image/gif")
         case "jpg" | "jpeg":
             print(f"image/jpeg")
         case "pdf":

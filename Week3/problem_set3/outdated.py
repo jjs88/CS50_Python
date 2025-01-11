@@ -17,12 +17,15 @@ month_list = [
 def main():
 
     while True:
-        user_val:str = input("Date: ")
+        user_val:str = input("Date: ").strip()
 
         if user_val.find('/') != -1:
             month, day, year = user_val.split('/')
+
+            if month in month_list:
+                print()
             
-            if int(month) <= 12 and int(day) <= 31:
+            elif int(month) <= 12 and int(day) <= 31:
                 print(f"{year}-{int(month):02}-{int(day):02}")
                 break
                  
