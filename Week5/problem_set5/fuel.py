@@ -3,6 +3,7 @@ import math
 def main():
     value = input("Fraction: ")
     convert(value)
+    # print(gauge(convert(value)))
 
 def convert(fraction):
     try:
@@ -11,7 +12,7 @@ def convert(fraction):
         y = int(y)
 
         if y == 0:
-            raise ZeroDivisionError
+            raise ZeroDivisionError("zero division error")
         
         elif x > y:
             raise ValueError
@@ -21,10 +22,11 @@ def convert(fraction):
         return result
 
     
-    except ValueError:
-        raise ValueError("Value error")
+    except ValueError as err:
+        raise ValueError
     except ZeroDivisionError:
         raise ZeroDivisionError("Divide by zero error")
+    
 
 
 def gauge(percentage:int):
